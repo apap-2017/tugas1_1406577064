@@ -1,0 +1,108 @@
+<!DOCTYPE HTML5>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Kependudukan DKI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:400,700" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+</head>
+
+<body>
+	<!-- Top menu -->
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">SI Kependudukan</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Cari Data</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<!--  <div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 text">
+					<h1 class="wow fadeInLeftBig">Pengumuman SBMPTN</h1>
+					<br />
+				</div>
+				<div class="col-sm-12 subscribe wow fadeInUp">
+					<form class="form-inline" role="form" action="/pengumuman/submit"
+						method="POST">
+						<div class="form-group">
+							<label for="nomorPeserta">Masukkan Nomor Peserta</label><br />
+						</div>
+						<div>
+							<input type="text" name="nomor" th:value="${nomor}" />
+						</div>
+						<br />
+						<button type="submit" name="action" value="submit" class="btn">Submit</button>
+					</form>
+					<div class="success-message"></div>
+					<div class="error-message"></div>
+				</div>
+			</div>
+		</div> -->
+
+		<!-- Top content -->
+		<div class="top-content">
+			<div class="container">
+				<h3>Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h3>
+				<p>Selamat datang di Sistem Informasi Kependudukan Online
+					Provinsi DKI Jakarta</p>
+				<hr />
+			</div>
+
+			<div class="container">
+				<h4>Lihat Data Penduduk Berdasarkan NIK</h4>
+				<form class="form-inline" role="form" action="/penduduk"
+					method="POST">
+					<div class="form-group">
+						<label for="nik"> Masukkan Nomor Induk Kependudukan </label>
+					</div>
+					<div>
+						<input type="text" name="nik" th:value="${nik}" />
+					</div>
+					<br />
+					<button type="submit" name="action" value="submit" class="btn">Lihat</button>
+				</form>
+				<hr />
+			</div>
+
+			<div class="container">
+				<h4>Lihat Data Penduduk Berdasarkan NKK</h4>
+				<div class="form-group">
+					<label for="nik"> Masukkan Nomor Kartu Keluarga </label> 
+					<input class="form-control" id="nik" type="nik" />
+				</div>
+				<a href="#" class="btn btn-info" role="button">Lihat</a>
+				<hr />
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<br /> <br />
+		<div class="bottom-content">
+			<div class="col-sm-6 footer-copyright">
+				&copy; by <a
+					href="http://azmind.com/free-bootstrap-themes-templates/">Muthia
+					Nabila</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Javascript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

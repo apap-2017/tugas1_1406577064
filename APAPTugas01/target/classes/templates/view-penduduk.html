@@ -1,0 +1,126 @@
+<!DOCTYPE HTML5>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Lihat Penduduk Berdasarkan NIK</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:400,700" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+</head>
+
+<body>
+	<!-- Top menu -->
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">SI Kependudukan</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Cari Data</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-20 text">
+					<h1 th:text="'Lihat Data Penduduk - ' + ${penduduk.nik}"></h1>
+					<table style="width: 100%">
+
+						<tr>
+							<td>NIK</td>
+							<td th:text="${penduduk.nik}">NIK</td>
+						</tr>
+						<tr>
+							<td>Nama</td>
+							<td th:text="${penduduk.nama}">nama</td>
+						</tr>
+						<tr>
+							<td>Tempat/Tanggal Lahir</td>
+							<td
+								th:text="${penduduk.tempatLahir}+', '+${penduduk.tanggalLahir}">TTL</td>
+						</tr>
+						<tr>
+							<td>Alamat</td>
+							<td th:text="${penduduk.keluarga.alamat}">alamat</td>
+						</tr>
+						<tr>
+							<td>RT/RW</td>
+							<td th:text="${penduduk.keluarga.rt}+'/'+${penduduk.keluarga.rw}">rt/rw</td>
+						</tr>
+						<tr>
+							<td>Kelurahan/Desa</td>
+							<td th:text="${penduduk.keluarga.kelurahan.namaKelurahan}">kel</td>
+						</tr>
+						<tr>
+							<td>Kecamatan</td>
+							<td
+								th:text="${penduduk.keluarga.kelurahan.kecamatan.namaKecamatan}">kec</td>
+						</tr>
+						<tr>
+							<td>Kota</td>
+							<td
+								th:text="${penduduk.keluarga.kelurahan.kecamatan.kota.namaKota}">kota</td>
+						</tr>
+						<tr>
+							<td>Golongan Darah</td>
+							<td th:text="${penduduk.golonganDarah}">goldar</td>
+						</tr>
+						<tr>
+							<td>Agama</td>
+							<td th:text="${penduduk.agama}">agama</td>
+						</tr>
+						<tr>
+							<td>Status Perkawinan</td>
+							<td th:text="${penduduk.statusPerkawinan}">status</td>
+						</tr>
+						<tr>
+							<td>Pekerjaan</td>
+							<td th:text="${penduduk.pekerjaan}">pekerjaan</td>
+						</tr>
+						<tr>
+							<td>Kewarganegaraan</td>
+							<td th:switch="${penduduk.isWni}">
+								<div th:case="1">WNI</div>
+								<div th:case="0">Warga Asing</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Status Kematian</td>
+							<td th:switch="${penduduk.isWafat}">
+								<div th:case="1">Wafat</div>
+								<div th:case="0">Hidup</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<hr />
+		</div>
+	</div>
+
+	<footer>
+	<br/>
+	<br/>
+	<div class="bottom-content">
+		<div class="col-sm-6 footer-copyright">
+			&copy; by <a
+				href="http://azmind.com/free-bootstrap-themes-templates/">Muthia
+				Nabila</a>
+		</div>
+		</div>
+	</footer>
+
+	<!-- Javascript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -81,17 +81,20 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="student,iterationStatus: ${penduduk}">
+					<tr th:each="penduduk,iterationStatus: ${keluarga.penduduks}">
 						<td th:text="${iterationStatus.count}">No. 1</td>
-						<td th:text="${nama}">nama</td>
-						<td th:text="${nik}">NIK</td>
-						<td th:text="${jenisKelamin}">P/L</td>
-						<td th:text="${temapatLahir}">tempat lahir</td>
-						<td th:text="${tanggalLahir}">tanggal lahir</td>
-						<td th:text="${agama}">agama</td>
-						<td th:text="${pekerjaan}">pekerjaan</td>
-						<td th:text="${statusPerkawinan}">status</td>
-						<td th:text="${statusDalamKeluarga}">status keluarga</td>
+						<td th:text="${penduduk.nama}">nama</td>
+						<td th:text="${penduduk.nik}">NIK</td>
+						<td th:switch="${penduduk.jenisKelamin}">
+								<div th:case="1">Wanita</div>
+								<div th:case="0">Laki-laki</div>
+							</td>
+						<td th:text="${penduduk.tempatLahir}">tempat lahir</td>
+						<td th:text="${penduduk.tanggalLahir}">tanggal lahir</td>
+						<td th:text="${penduduk.agama}">agama</td>
+						<td th:text="${penduduk.pekerjaan}">pekerjaan</td>
+						<td th:text="${penduduk.statusPerkawinan}">status</td>
+						<td th:text="${penduduk.statusDalamKeluarga}">status keluarga</td>
 						<td th:switch="${penduduk.isWni}">
 								<div th:case="1">WNI</div>
 								<div th:case="0">Warga Asing</div>

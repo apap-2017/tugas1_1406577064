@@ -1,5 +1,8 @@
 package com.example.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Param;
@@ -14,50 +17,41 @@ import com.example.model.Kota;
 import com.example.model.Penduduk;
 
 @Mapper
-public interface PendudukMapper {
-	@Select("select * from penduduk where nik = #{nik}")
-    @Results(value = {
-    		//@Result(property="id", column="id"),
-    		@Result(property="nik", column="nik"),
-    		@Result(property="nama", column="nama"),
-    		@Result(property="tempatLahir", column="tempat_lahir"),
-    		@Result(property="tanggalLahir", column="tanggal_lahir"),
-    		//@Result(property="jenisKelamin", column="jenis_kelamin"),
-    		@Result(property="isWni", column="is_wni"),
-    		//@Result(property="idKeluarga", column="id_keluarga"),
-    		@Result(property="keluarga", column="id_keluarga", javaType = Keluarga.class, one = @One(select = "selectKeluarga")),
-    		@Result(property="agama", column="agama"),
-    		@Result(property="pekerjaan", column="pekerjaan"),
-    		@Result(property="statusPerkawinan", column="status_perkawinan"),
-    		//@Result(property="statusDalamKeluarga", column="status_dalam_keluarga"),
-    		@Result(property="golonganDarah", column="golongan_darah"),
-    		@Result(property="isWafat", column="is_wafat")
-    })
-    Penduduk selectPenduduk (@Param("nik") String nik);
-	
-//	@Select("Select k.alamat, k.rt, k.rw, k.id_kelurahan" +
-//    		" from keluarga k join penduduk p on k.id=p.id_keluarga"
-//    		+ " where k.id=#{id_keluarga}")
-//	@Results(value = {		
-//			@Result (property = "idKelurahan", column = "id_kelurahan"),
-//			@Result (property = "alamat", column = "alamat"),
-//			@Result (property = "rt", column = "rt"),
-//			@Result (property = "rw", column = "rw"),
-//			//@Result (property = "kelurahan", column = "id_kelurahan",javaType = KelurahanModel.class,many = @Many(select="selectKelurahan"))	
-//	}) 
-//    Keluarga selectKeluargas(@Param("nomor_kk") String nomorKk);
-	
-	@Select("select * from keluarga where id = #{id_keluarga}")
+public interface KeluargaMapper {
+	@Select("select * from keluarga where nomor_kk = #{nomorKk}")
 	@Results(value = {
 			//@Result(property="id", column="id"),
-			//@Result(property="nomorKk", column="nomor_kk"),
+			@Result(property="nomorKk", column="nomor_kk"),
 			@Result(property="alamat", column="alamat"),
 			@Result(property="rt", column="rt"),
 			@Result(property="rw", column="rw"),
 			@Result(property="kelurahan", column="id_kelurahan", javaType = Kelurahan.class, one = @One(select = "selectKelurahan")),
 			//@Result(property="isTidakBerlaku", column="is_tidak_berlaku"),
+			@Result(property="penduduks", column="id", javaType = List.class, many=@Many(select="selectPenduduks"))
 	})
-	Keluarga selectKeluarga(@Param("nomor_kk") String nomorKk);
+	Keluarga selectKeluarga(@Param("nomorKk") String nomorKk);
+	
+	@Select("Select *" +
+    		" from penduduk p join keluarga k on p.id_keluarga=k.id"
+    		+ " where k.id=#{id}")
+	@Results(value = {
+    		//@Result(property="id", column="id"),
+    		@Result(property="nik", column="nik"),
+    		@Result(property="nama", column="nama"),
+    		@Result(property="tempatLahir", column="tempat_lahir"),
+    		@Result(property="tanggalLahir", column="tanggal_lahir"),
+    		@Result(property="jenisKelamin", column="jenis_kelamin"),
+    		@Result(property="isWni", column="is_wni"),
+    		//@Result(property="idKeluarga", column="id_keluarga"),
+    		//@Result(property="keluarga", column="id_keluarga", javaType = Keluarga.class, one = @One(select = "selectKeluarga")),
+    		@Result(property="agama", column="agama"),
+    		@Result(property="pekerjaan", column="pekerjaan"),
+    		@Result(property="statusPerkawinan", column="status_perkawinan"),
+    		@Result(property="statusDalamKeluarga", column="status_dalam_keluarga"),
+    		@Result(property="golonganDarah", column="golongan_darah"),
+    		//@Result(property="isWafat", column="is_wafat")
+    })
+    List<Penduduk> selectPenduduks(@Param("id_keluarga") String idKeluarga);
 	
 	@Select("select * from kelurahan where id = #{id_kelurahan}")
 	@Results(value = {

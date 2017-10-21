@@ -81,11 +81,22 @@
 
 			<div class="container">
 				<h4>Lihat Data Penduduk Berdasarkan NKK</h4>
-				<div class="form-group">
+				<form class="form-inline" role="form" action="/keluarga"
+					method="POST">
+					<div class="form-group">
+						<label for="nkk"> Masukkan Nomor Kartu Keluarga </label>
+					</div>
+					<div>
+						<input type="text" name="nkk" th:value="${nkk}" />
+					</div>
+					<br />
+					<button type="submit" name="action" value="submit" class="btn">Lihat</button>
+				</form>
+				<!-- <div class="form-group">
 					<label for="nik"> Masukkan Nomor Kartu Keluarga </label> 
 					<input class="form-control" id="nik" type="nik" />
 				</div>
-				<a href="#" class="btn btn-info" role="button">Lihat</a>
+				<a href="#" class="btn btn-info" role="button">Lihat</a> -->
 				<hr />
 			</div>
 		</div>

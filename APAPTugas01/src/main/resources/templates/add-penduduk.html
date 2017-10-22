@@ -1,0 +1,169 @@
+<!DOCTYPE HTML5>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Lihat Data Kelurga Penduduk</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:400,700" />
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+</head>
+
+<body>
+	<!-- Top menu -->
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">SI Kependudukan</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Cari Data</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<div class="container">
+			<div class="row">
+				<h1>Tambah Penduduk</h1>
+				<br />
+				<form class="form-inline" role="form" action="/penduduk/tambah/submit"
+					method="POST">
+					<div class="form-group">
+						<label for="nama">Masukkan Nama</label>
+					</div>
+					<div>
+						<input class="form-control" type="text" name="nama"
+							th:value="${nama}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="tempatLahir">Tempat Lahir</label>
+					</div>
+					<div>
+						<input class="form-control" type="text" name="tempatLahir"
+							th:value="${tempatLahir}" />
+					</div>
+					<div class="form-group">
+						<label for="tanggalLahir">Tanggal Lahir</label>
+					</div>
+					<div>
+						<input class="form-control" type="text" name="tanggalLahir"
+							th:value="${tanggalLahir}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="jenisKelamin">Jenis Kelamin</label>
+					</div>
+					<div>
+						<select class="form-control selectpicker" name="jenisKelamin">
+							<option value="0">Laki-laki</option>
+							<option value="1">Perempuan</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="golonganDarah">Golongan Darah</label>
+					</div>
+					<div>
+						<select name="golonganDarah" class="form-control selectpicker">
+							<option value="A+">A+</option>
+							<option value="A-">A-</option>
+							<option value="B+">B+</option>
+							<option value="B-">B-</option>
+							<option value="O+">O+</option>
+							<option value="O-">O-</option>
+							<option value="AB+">AB+</option>
+							<option value="AB-">AB-</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="agama">Agama</label>
+					</div>
+					<div>
+						<input class="form-control" type="text" name="agama"
+							th:value="${agama}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="statusDalamKeluarga">Status Dalam Keluarga</label>
+					</div>
+					<div>
+						<input class="form-control" type="text" name="statusDalamKeluarga"
+							th:value="${statusDalamKeluarga}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="statusPerkawinan">Status Perkawinan</label>
+					</div>
+					<div>
+						<select name="statusPerkawinan" class="form-control selectpicker">
+							<option value="Belum Kawin">Belum Kawin</option>
+							<option value="Kawin">Kawin</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="pekerjaan">Pekerjaan</label>
+					</div>
+					<div>
+						<input class="form-control" type="text" name="pekerjaan"
+							th:value="${pekerjaan}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="isWni">Kewarganegaraan</label>
+					</div>
+					<div>
+						<select name="isWni" class="form-control selectpicker">
+							<option value="0">WNA</option>
+							<option value="1">WNI</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="isWafat">Status Kematian</label>
+					</div>
+					<div>
+						<select name="isWafat" class="form-control selectpicker">
+							<option value="0">Hidup</option>
+							<option value="1">Wafat</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="idKeluarga">ID Keluarga</label>
+					</div>
+					<div>
+						<input class="form-control" type="text" name="idKeluarga"
+							th:value="${idKeluarga}" />
+					</div>
+					<button type="submit" name="action" value="save" class="btn">Simpan</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<br /> <br />
+		<div class="bottom-content">
+			<div class="col-sm-6 footer-copyright">
+				&copy; by <a
+					href="http://azmind.com/free-bootstrap-themes-templates/">Muthia
+					Nabila</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Javascript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -54,51 +54,48 @@
 			</div>
 		</div> -->
 
-		<!-- Top content -->
-		<div class="top-content">
-			<div class="container">
-				<h3>Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h3>
-				<p>Selamat datang di Sistem Informasi Kependudukan Online
-					Provinsi DKI Jakarta</p>
-				<hr />
-			</div>
+		<div class="container">
+			<h3>Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h3>
+			<p>Selamat datang di Sistem Informasi Kependudukan Online
+				Provinsi DKI Jakarta</p>
+			<hr />
+		</div>
 
-			<div class="container">
-				<h4>Lihat Data Penduduk Berdasarkan NIK</h4>
-				<form class="form-inline" role="form" action="/penduduk"
-					method="POST">
-					<div class="form-group">
-						<label for="nik"> Masukkan Nomor Induk Kependudukan </label>
-					</div>
-					<div>
-						<input type="text" name="nik" th:value="${nik}" />
-					</div>
-					<br />
-					<button type="submit" name="action" value="submit" class="btn">Lihat</button>
-				</form>
-				<hr />
-			</div>
+		<div class="container">
+			<h4>Lihat Data Penduduk Berdasarkan NIK</h4>
+			<form class="form-inline" role="form" action="/penduduk"
+				method="POST">
+				<div class="form-group">
+					<label for="nik"> Masukkan Nomor Induk Kependudukan </label>
+				</div>
+				<div>
+					<input class="form-control" type="text" name="nik" th:value="${nik}" />
+				</div>
+				<br />
+				<button type="submit" name="action" value="submit" class="btn">Lihat</button>
+			</form>
+			<hr />
+		</div>
 
-			<div class="container">
-				<h4>Lihat Data Penduduk Berdasarkan NKK</h4>
-				<form class="form-inline" role="form" action="/keluarga"
-					method="POST">
-					<div class="form-group">
-						<label for="nkk"> Masukkan Nomor Kartu Keluarga </label>
-					</div>
-					<div>
-						<input type="text" name="nkk" th:value="${nkk}" />
-					</div>
-					<br />
-					<button type="submit" name="action" value="submit" class="btn">Lihat</button>
-				</form>
-				<!-- <div class="form-group">
+		<div class="container">
+			<h4>Lihat Data Penduduk Berdasarkan NKK</h4>
+			<form class="form-inline" role="form" action="/keluarga"
+				method="POST">
+				<div class="form-group">
+					<label for="nkk"> Masukkan Nomor Kartu Keluarga </label>
+				</div>
+				<div>
+					<input class="form-control" type="text" name="nkk" th:value="${nkk}" />
+				</div>
+				<br />
+				<button type="submit" name="action" value="submit" class="btn">Lihat</button>
+			</form>
+			<!-- <div class="form-group">
 					<label for="nik"> Masukkan Nomor Kartu Keluarga </label> 
 					<input class="form-control" id="nik" type="nik" />
 				</div>
 				<a href="#" class="btn btn-info" role="button">Lihat</a> -->
-				<hr />
-			</div>
+			<hr />
 		</div>
 	</div>
 

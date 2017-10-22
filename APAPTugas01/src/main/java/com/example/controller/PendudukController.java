@@ -1,12 +1,19 @@
 package com.example.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.model.Keluarga;
 import com.example.model.Penduduk;
 import com.example.service.PendudukService;
 
@@ -34,5 +41,44 @@ public class PendudukController {
             model.addAttribute ("nik", nik);
             return "not-found-penduduk";
         }
+    }
+    
+    @RequestMapping("/penduduk/tambah")
+    public String addPenduduk ()
+    {
+        return "add-penduduk";
+    }
+    
+    @RequestMapping(value = "/penduduk/tambah/submit", method = RequestMethod.POST)
+    public String addPendudukSubmit (Model model, @ModelAttribute Penduduk penduduk)
+    {
+    	Keluarga keluarga = pendudukDAO.selectKeluarga(penduduk.getIdKeluarga());
+    	String kode = keluarga.getKelurahan().getKecamatan().getKodeKecamatan();
+    	System.out.println(kode);
+    	String newNik = kode.substring(0, 6);
+    	
+    	String date = penduduk.getTanggalLahir();
+		String[] tanggalLengkap = date.split("-");
+		String tahun = tanggalLengkap[0].substring(2, 4);
+		String bulan = tanggalLengkap[1];
+		String tanggal = tanggalLengkap[2];
+		String tanggalLahirRemake = tanggal + bulan + tahun;
+
+		if (penduduk.getJenisKelamin() == 1) {
+			Integer perempuan = Integer.parseInt(tanggal) + 40;
+			String tanggalLahirRemakePerempuan = perempuan + bulan + tahun;
+			newNik += tanggalLahirRemakePerempuan;
+		} else {
+			newNik += tanggalLahirRemake;
+		}
+		
+		newNik += 0001;
+    	
+		penduduk.setNik(newNik);
+		model.addAttribute("newNik", newNik);	
+
+        pendudukDAO.addPenduduk (penduduk);
+
+        return "success-add-penduduk";
     }
 }

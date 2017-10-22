@@ -14,7 +14,7 @@ public class Penduduk {
 	private String nik;
 	private String nama;
 	private String tempatLahir;
-	private Date tanggalLahir;
+	private String tanggalLahir;
 	private int jenisKelamin; //(0 = Pria, 1 = Wanita)
 	private Integer isWni; //penduduk WNI atau WNA
 	private int idKeluarga;
@@ -25,4 +25,5 @@ public class Penduduk {
 	private String golonganDarah;
 	private Integer isWafat;
 	private Keluarga keluarga;
+	private String kodeKecamatan;
 }

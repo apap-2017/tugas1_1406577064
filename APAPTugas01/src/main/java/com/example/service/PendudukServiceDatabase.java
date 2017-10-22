@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.PendudukMapper;
+import com.example.model.Keluarga;
 import com.example.model.Penduduk;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,5 +20,21 @@ public class PendudukServiceDatabase implements PendudukService {
 	public Penduduk selectPenduduk(String nik) {
 		log.info("select penduduk with nik {}", nik);
 		return pendudukMapper.selectPenduduk(nik);
+	}
+
+	@Override
+	public void addPenduduk(Penduduk penduduk) {
+		pendudukMapper.addPenduduk(penduduk);
+	}
+
+//	@Override
+//	public Penduduk kodeKec(int idKeluarga) {
+//		log.info("select kode kecamatan with id keluarga {}", idKeluarga);
+//		return pendudukMapper.kodeKec(idKeluarga);
+//	}
+
+	@Override
+	public Keluarga selectKeluarga(int idKeluarga) {
+		return pendudukMapper.selectKeluarga(idKeluarga);
 	}
 }

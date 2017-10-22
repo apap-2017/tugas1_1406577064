@@ -11,6 +11,11 @@ import com.example.model.Keluarga;
 import com.example.service.KeluargaService;
 
 @Controller
+/**
+ * 
+ * @author Muthia
+ * Kelas ini berfungsi sebagai controller untuk semua fitur yang berkaitan dengan keluarga
+ */
 public class KeluargaController {
 	@Autowired
     KeluargaService keluargaDAO;

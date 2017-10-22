@@ -1,33 +1,10 @@
-<!DOCTYPE HTML5>
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Kependudukan DKI</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<!-- CSS -->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Raleway:400,700" />
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+<title>Lihat Penduduk Berdasarkan NIK</title>
+<div th:replace="fragments/header"></div>
 </head>
-
 <body>
-	<!-- Top menu -->
-	<nav class="navbar navbar-inverse" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">SI Kependudukan</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Cari Data</a></li>
-			</ul>
-		</div>
-	</nav>
-
 	<!-- Top content -->
 	<div class="top-content">
 		<!--  <div class="container">
@@ -99,18 +76,6 @@
 		</div>
 	</div>
 
-	<footer>
-		<br /> <br />
-		<div class="bottom-content">
-			<div class="col-sm-6 footer-copyright">
-				&copy; by <a
-					href="http://azmind.com/free-bootstrap-themes-templates/">Muthia
-					Nabila</a>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Javascript -->
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+<div th:replace="fragments/footer"></div>
 </body>
 </html>

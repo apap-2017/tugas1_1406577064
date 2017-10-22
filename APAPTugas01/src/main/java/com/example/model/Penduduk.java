@@ -1,7 +1,5 @@
 package com.example.model;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +23,4 @@ public class Penduduk {
 	private String golonganDarah;
 	private Integer isWafat;
 	private Keluarga keluarga;
-	private String kodeKecamatan;
 }

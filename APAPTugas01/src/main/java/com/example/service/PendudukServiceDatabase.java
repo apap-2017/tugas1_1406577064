@@ -27,12 +27,6 @@ public class PendudukServiceDatabase implements PendudukService {
 		pendudukMapper.addPenduduk(penduduk);
 	}
 
-//	@Override
-//	public Penduduk kodeKec(int idKeluarga) {
-//		log.info("select kode kecamatan with id keluarga {}", idKeluarga);
-//		return pendudukMapper.kodeKec(idKeluarga);
-//	}
-
 	@Override
 	public Keluarga selectKeluarga(int idKeluarga) {
 		return pendudukMapper.selectKeluarga(idKeluarga);

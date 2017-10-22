@@ -1,10 +1,5 @@
 package com.example.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,17 +13,16 @@ import com.example.model.Penduduk;
 import com.example.service.PendudukService;
 
 @Controller
+/**
+ * 
+ * @author Muthia
+ * Kelas ini berfungsi sebagai controller untuk semua fitur yang berkaitan dengan penduduk
+ */
 public class PendudukController {
 	@Autowired
     PendudukService pendudukDAO;
-	
-	@RequestMapping("/")
-    public String index ()
-    {
-        return "index";
-    }
     
-    //Menampilkan data penduduk.
+    //Menampilkan data penduduk
     @RequestMapping(value = "/penduduk", method = RequestMethod.POST)
     public String viewPenduduk (Model model, @RequestParam(value = "nik", required = false) String nik)
     {
@@ -43,6 +37,7 @@ public class PendudukController {
         }
     }
     
+    //Menambahkan penduduk
     @RequestMapping("/penduduk/tambah")
     public String addPenduduk ()
     {

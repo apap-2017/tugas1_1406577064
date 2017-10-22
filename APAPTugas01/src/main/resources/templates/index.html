@@ -1,36 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Lihat Penduduk Berdasarkan NIK</title>
+<title>Home</title>
 <div th:replace="fragments/header"></div>
 </head>
 <body>
 	<!-- Top content -->
 	<div class="top-content">
-		<!--  <div class="container">
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-2 text">
-					<h1 class="wow fadeInLeftBig">Pengumuman SBMPTN</h1>
-					<br />
-				</div>
-				<div class="col-sm-12 subscribe wow fadeInUp">
-					<form class="form-inline" role="form" action="/pengumuman/submit"
-						method="POST">
-						<div class="form-group">
-							<label for="nomorPeserta">Masukkan Nomor Peserta</label><br />
-						</div>
-						<div>
-							<input type="text" name="nomor" th:value="${nomor}" />
-						</div>
-						<br />
-						<button type="submit" name="action" value="submit" class="btn">Submit</button>
-					</form>
-					<div class="success-message"></div>
-					<div class="error-message"></div>
-				</div>
-			</div>
-		</div> -->
-
 		<div class="container">
 			<h3>Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h3>
 			<p>Selamat datang di Sistem Informasi Kependudukan Online
@@ -40,8 +16,7 @@
 
 		<div class="container">
 			<h4>Lihat Data Penduduk Berdasarkan NIK</h4>
-			<form class="form-inline" role="form" action="/penduduk"
-				method="POST">
+			<form class="form-inline" role="form" action="/penduduk?nik=${nik}" method="GET">
 				<div class="form-group">
 					<label for="nik"> Masukkan Nomor Induk Kependudukan </label>
 				</div>
@@ -56,8 +31,7 @@
 
 		<div class="container">
 			<h4>Lihat Data Penduduk Berdasarkan NKK</h4>
-			<form class="form-inline" role="form" action="/keluarga"
-				method="POST">
+			<form class="form-inline" role="form" action="/keluarga?nkk=${nkk}" method="GET">
 				<div class="form-group">
 					<label for="nkk"> Masukkan Nomor Kartu Keluarga </label>
 				</div>

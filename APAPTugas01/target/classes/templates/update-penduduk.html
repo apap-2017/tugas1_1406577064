@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Ubah Penduduk</title>
+<div th:replace="fragments/header"></div>
+</head>
+<body>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<div class="container">
+			<div class="row">
+				<h1 class="page-header">Ubah Penduduk</h1>
+
+				<form action="/penduduk/ubah/submit" th:object="${penduduk}"
+					method="post">
+					<div>
+						<label for="nama">Nama</label>
+						<p>
+							<input class="form-control" type="text" name="nama"
+								th:field="*{nama}" />
+						</p>
+					</div>
+					<div>
+						<label for="nik">NIK</label>
+						<p>
+							<input class="form-control" type="text" name="nik"
+								readonly="true" th:field="*{nik}" />
+						</p>
+					</div>
+					<div>
+						<label for="tempatLahir">Tempat Lahir</label>
+						<p>
+							<input class="form-control" type="text" name="tempatLahir"
+								th:field="*{tempatLahir}" />
+						</p>
+					</div>
+					<div>
+						<label for="tanggalLahir">Tanggal Lahir</label>
+						<p>
+							<input class="form-control" type="text" name="tanggalLahir"
+								th:field="*{tanggalLahir}" />
+						</p>
+					</div>
+					<div>
+						<label for="golonganDarah">Golongan Darah</label>
+						<p>
+							<select class="form-control" name="golonganDarah"
+								th:field="*{golonganDarah}">
+								<option value="A+">A+</option>
+								<option value="A-">A-</option>
+								<option value="B+">B+</option>
+								<option value="B-">B-</option>
+								<option value="O+">O+</option>
+								<option value="O-">O-</option>
+								<option value="AB+">AB+</option>
+								<option value="AB-">AB-</option>
+							</select>
+						</p>
+					</div>
+					<div>
+						<label for="jenisKelamin">Jenis Kelamin</label>
+						<p>
+							<select class="form-control" name="jenisKelamin"
+								th:field="*{jenisKelamin}">
+								<option th:value="0">Laki-laki</option>
+								<option th:value="1">Perempuan</option>
+							</select>
+						</p>
+					</div>
+					<div>
+						<label for="agama">Agama</label>
+						<p>
+							<input class="form-control" type="text" name="agama"
+								th:field="*{agama}" />
+						</p>
+					</div>
+					<div>
+						<label for="pekerjaan">Pekerjaan</label>
+						<p>
+							<input class="form-control" type="text" name="pekerjaan"
+								th:field="*{pekerjaan}" />
+						</p>
+					</div>
+					<div>
+						<label for="isWni">Kewarganegaraan</label>
+						<p>
+							<select class="form-control" name="isWni" th:field="*{isWni}">
+								<option th:value="0">WNA</option>
+								<option th:value="1">WNI</option>
+							</select>
+						</p>
+					</div>
+
+					<div>
+						<label for="statusPerkawinan">Status Perkawinan</label>
+						<p>
+							<select class="form-control" name="statusPerkawinan"
+								th:field="*{statusPerkawinan}">
+								<option value="Belum Kawin">Belum Kawin</option>
+								<option value="Kawin">Kawin</option>
+							</select>
+						</p>
+					</div>
+
+					<div>
+						<label for="statusDalamKeluarga">Status Dalam Keluarga</label>
+						<p>
+							<input class="form-control" type="text"
+								name="statusDalamKeluarga" th:field="*{statusDalamKeluarga}" />
+						</p>
+					</div>
+					<div>
+						<label for="idKeluarga">ID Keluarga</label>
+						<p>
+							<input class="form-control" type="text" name="idKeluarga"
+								th:field="*{idKeluarga}" />
+						</p>
+					</div>
+
+					<div>
+						<button type="submit" name="action" value="save">Ubah</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/footer"></div>
+</body>
+</html>

@@ -9,4 +9,6 @@ public interface PendudukService {
 	void addPenduduk(Penduduk penduduk);
 
 	Keluarga selectKeluarga(int idKeluarga);
+
+	void updatePenduduk(Penduduk penduduk);
 }

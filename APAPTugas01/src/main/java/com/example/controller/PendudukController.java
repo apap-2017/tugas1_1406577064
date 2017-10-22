@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,7 @@ public class PendudukController {
     PendudukService pendudukDAO;
     
     //Menampilkan data penduduk
-    @RequestMapping(value = "/penduduk", method = RequestMethod.POST)
+    @RequestMapping("/penduduk")
     public String viewPenduduk (Model model, @RequestParam(value = "nik", required = false) String nik)
     {
     	Penduduk penduduk = pendudukDAO.selectPenduduk(nik);
@@ -75,5 +76,27 @@ public class PendudukController {
         pendudukDAO.addPenduduk (penduduk);
 
         return "success-add-penduduk";
+    }
+    
+    // Mengubah penduduk
+    @RequestMapping("/penduduk/ubah/{nik}")
+    public String update (Model model, @PathVariable(value = "nik") String nik)
+    {
+        Penduduk penduduk = pendudukDAO.selectPenduduk (nik);
+
+        if (penduduk == null) {
+        	model.addAttribute ("nik", nik);
+            return "not-found-penduduk";
+        } else {
+        	model.addAttribute ("penduduk", penduduk);
+            return "update-penduduk";
+        }
+    }
+    
+    @RequestMapping(value  =  "/penduduk/ubah/submit",  method = RequestMethod.POST)
+    public String updateSubmit (Model model, @ModelAttribute Penduduk penduduk){
+    	pendudukDAO.updatePenduduk (penduduk);
+    	model.addAttribute("penduduk", penduduk);
+        return "success-update-penduduk";
     }
 }

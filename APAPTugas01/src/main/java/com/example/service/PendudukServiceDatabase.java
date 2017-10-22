@@ -31,4 +31,9 @@ public class PendudukServiceDatabase implements PendudukService {
 	public Keluarga selectKeluarga(int idKeluarga) {
 		return pendudukMapper.selectKeluarga(idKeluarga);
 	}
+
+	@Override
+	public void updatePenduduk(Penduduk penduduk) {
+		pendudukMapper.updatePenduduk(penduduk);
+	}
 }

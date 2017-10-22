@@ -20,4 +20,14 @@ public class KeluargaServiceDatabase implements KeluargaService {
 		log.info("select penduduk with nkk {}", nomorKk);
 		return keluargaMapper.selectKeluarga(nomorKk);
 	}
+
+	@Override
+	public void addKeluarga(Keluarga keluarga) {
+		keluargaMapper.addKeluarga(keluarga);
+	}
+
+	@Override
+	public void updateKeluarga(Keluarga keluarga) {
+		keluargaMapper.updateKeluarga(keluarga);
+	}
 }

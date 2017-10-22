@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Update Success</title>
+<div th:replace="fragments/header"></div>
+</head>
+<body>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<div class="container">
+			<div class="row">
+				<h1>Sukses!</h1>
+				<h3
+					th:text="'Keluarga dengan NKK ' + ${keluarga.nomorKk} + ' berhasil diubah'">Data
+					berhasil diubah</h3>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer"></div>
+</body>
+</html>

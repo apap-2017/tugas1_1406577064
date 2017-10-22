@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Ubah Keluarga</title>
+<div th:replace="fragments/header"></div>
+</head>
+<body>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<div class="container">
+			<div class="row">
+				<h1 class="page-header">Ubah Keluarga</h1>
+
+				<form action="/keluarga/ubah/submit" th:object="${keluarga}"
+					method="post">
+					<div>
+						<label for="nomorKk">NKK</label>
+						<p>
+							<input class="form-control" type="text" name="nomorKk"
+								th:field="*{nomorKk}" />
+						</p>
+					</div>
+					<div>
+						<label for="alamat">Alamat</label>
+						<p>
+							<input class="form-control" type="text" name="alamat"
+								th:field="*{alamat}" />
+						</p>
+					</div>
+					<div>
+						<label for="rt">RT</label>
+						<p>
+							<input class="form-control" type="text" name="rt"
+								th:field="*{rt}" />
+						</p>
+					</div>
+					<div>
+						<label for="rw">RW</label>
+						<p>
+							<input class="form-control" type="text" name="rw"
+								th:field="*{rw}" />
+						</p>
+					</div>
+					<div>
+						<label for="idKelurahan">ID Kelurahan</label>
+						<p>
+							<input class="form-control" type="text"
+								name="idKelurahan" th:field="*{idKelurahan}" />
+						</p>
+					</div>
+
+					<div>
+						<button type="submit" name="action" value="save">Ubah</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/footer"></div>
+</body>
+</html>

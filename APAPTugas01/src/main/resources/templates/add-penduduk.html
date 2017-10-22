@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Lihat Penduduk Berdasarkan NIK</title>
+<title>Tambah Keluarga</title>
 <div th:replace="fragments/header"></div>
 </head>
 <body>
@@ -10,47 +10,42 @@
 	<div class="top-content">
 		<div class="container">
 			<div class="row">
-				<h1>Tambah Penduduk</h1>
-				<br />
-				<form class="form-inline" role="form" action="/penduduk/tambah/submit"
+				<h1 class="page-header">Tambah Penduduk</h1>
+				
+				<form role="form" action="/penduduk/tambah/submit"
 					method="POST">
-					<div class="form-group">
+					<div>
 						<label for="nama">Masukkan Nama</label>
-					</div>
-					<div>
+						<p>
 						<input class="form-control" type="text" name="nama"
-							th:value="${nama}" />
+							th:value="${nama}" /> </p>
 					</div>
 					
-					<div class="form-group">
+					<div>
 						<label for="tempatLahir">Tempat Lahir</label>
-					</div>
-					<div>
+						<p>
 						<input class="form-control" type="text" name="tempatLahir"
-							th:value="${tempatLahir}" />
-					</div>
-					<div class="form-group">
-						<label for="tanggalLahir">Tanggal Lahir</label>
+							th:value="${tempatLahir}" /> </p>
 					</div>
 					<div>
+						<label for="tanggalLahir">Tanggal Lahir</label>
+						<p>
 						<input class="form-control" type="text" name="tanggalLahir"
-							th:value="${tanggalLahir}" />
+							th:value="${tanggalLahir}" /> </p>
 					</div>
 					
-					<div class="form-group">
-						<label for="jenisKelamin">Jenis Kelamin</label>
-					</div>
 					<div>
+						<label for="jenisKelamin">Jenis Kelamin</label>
+						<p>
 						<select class="form-control selectpicker" name="jenisKelamin">
 							<option value="0">Laki-laki</option>
 							<option value="1">Perempuan</option>
-						</select>
+						</select> </p>
 					</div>
 					
-					<div class="form-group">
-						<label for="golonganDarah">Golongan Darah</label>
-					</div>
 					<div>
+						<label for="golonganDarah">Golongan Darah</label>
+						<p>
 						<select name="golonganDarah" class="form-control selectpicker">
 							<option value="A+">A+</option>
 							<option value="A-">A-</option>
@@ -60,71 +55,67 @@
 							<option value="O-">O-</option>
 							<option value="AB+">AB+</option>
 							<option value="AB-">AB-</option>
-						</select>
+						</select> </p>
 					</div>
 					
-					<div class="form-group">
+					<div>
 						<label for="agama">Agama</label>
-					</div>
-					<div>
+						<p>
 						<input class="form-control" type="text" name="agama"
-							th:value="${agama}" />
+							th:value="${agama}" /> </p>
 					</div>
 					
-					<div class="form-group">
+					<div>
 						<label for="statusDalamKeluarga">Status Dalam Keluarga</label>
-					</div>
-					<div>
+						<p>
 						<input class="form-control" type="text" name="statusDalamKeluarga"
-							th:value="${statusDalamKeluarga}" />
+							th:value="${statusDalamKeluarga}" /> </p>
 					</div>
 					
-					<div class="form-group">
-						<label for="statusPerkawinan">Status Perkawinan</label>
-					</div>
 					<div>
+						<label for="statusPerkawinan">Status Perkawinan</label>
+						<p>
 						<select name="statusPerkawinan" class="form-control selectpicker">
 							<option value="Belum Kawin">Belum Kawin</option>
 							<option value="Kawin">Kawin</option>
-						</select>
+						</select> </p>
 					</div>
 					
-					<div class="form-group">
+					<div>
 						<label for="pekerjaan">Pekerjaan</label>
-					</div>
-					<div>
+						<p>
 						<input class="form-control" type="text" name="pekerjaan"
-							th:value="${pekerjaan}" />
+							th:value="${pekerjaan}" /> </p>
 					</div>
 					
-					<div class="form-group">
-						<label for="isWni">Kewarganegaraan</label>
-					</div>
 					<div>
+						<label for="isWni">Kewarganegaraan</label>
+						<p>
 						<select name="isWni" class="form-control selectpicker">
 							<option value="0">WNA</option>
 							<option value="1">WNI</option>
-						</select>
+						</select> </p>
 					</div>
 					
-					<div class="form-group">
-						<label for="isWafat">Status Kematian</label>
-					</div>
 					<div>
+						<label for="isWafat">Status Kematian</label>
+						<p>
 						<select name="isWafat" class="form-control selectpicker">
 							<option value="0">Hidup</option>
 							<option value="1">Wafat</option>
-						</select>
+						</select> </p>
 					</div>
 					
-					<div class="form-group">
-						<label for="idKeluarga">ID Keluarga</label>
-					</div>
 					<div>
+						<label for="idKeluarga">ID Keluarga</label>
+						<p>
 						<input class="form-control" type="text" name="idKeluarga"
-							th:value="${idKeluarga}" />
+							th:value="${idKeluarga}" /> </p>
 					</div>
+					
+					<div>
 					<button type="submit" name="action" value="save" class="btn">Simpan</button>
+					</div>
 				</form>
 			</div>
 		</div>

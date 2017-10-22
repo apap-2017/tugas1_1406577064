@@ -78,4 +78,7 @@ public interface PendudukMapper {
 			+ "is_wni=#{isWni}, status_dalam_keluarga=#{statusDalamKeluarga}, status_perkawinan=#{statusPerkawinan}, id_keluarga=#{idKeluarga} "
 			+ "WHERE nik = #{nik}")
 	void updatePenduduk(Penduduk penduduk);
+
+	@Update("UPDATE penduduk SET is_wafat = 1 where nik = #{nik}")
+	void ubahKematianPenduduk(String nik);
 }

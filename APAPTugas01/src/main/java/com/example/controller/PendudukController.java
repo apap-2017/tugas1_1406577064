@@ -99,4 +99,13 @@ public class PendudukController {
     	model.addAttribute("penduduk", penduduk);
         return "success-update-penduduk";
     }
+    
+    // Mengubah status kematian
+    @RequestMapping("penduduk/mati")
+	public String ubahKematian(@RequestParam(value = "nik", required = false) String nik, Model model) {
+    	Penduduk penduduk = pendudukDAO.selectPenduduk(nik);
+		model.addAttribute("penduduk", penduduk);
+		pendudukDAO.ubahKematianPenduduk(nik);
+		return "redirect:/penduduk?nik=" + nik;
+}
 }

@@ -90,7 +90,11 @@
 								<div th:case="1">Wafat</div>
 								<div th:case="0">Hidup</div>
 							</td>
-							<td><button type="button" class="btn btn-danger">Nonaktifkan</button></td>
+							<td>
+							<form action="/penduduk/mati" method="get">
+							<button class="btn btn-danger" type="submit" id="nik" name="nik" th:value="${penduduk.nik}">Nonaktifkan</button>
+							</form>
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -99,6 +103,6 @@
 		</div>
 	</div>
 
-<div th:replace="fragments/footer"></div>
+	<div th:replace="fragments/footer"></div>
 </body>
 </html>

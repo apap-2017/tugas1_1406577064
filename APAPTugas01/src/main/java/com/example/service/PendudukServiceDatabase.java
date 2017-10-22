@@ -36,4 +36,9 @@ public class PendudukServiceDatabase implements PendudukService {
 	public void updatePenduduk(Penduduk penduduk) {
 		pendudukMapper.updatePenduduk(penduduk);
 	}
+
+	@Override
+	public void ubahKematianPenduduk(String nik) {
+		pendudukMapper.ubahKematianPenduduk(nik);
+	}
 }

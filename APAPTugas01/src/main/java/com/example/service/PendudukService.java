@@ -11,4 +11,6 @@ public interface PendudukService {
 	Keluarga selectKeluarga(int idKeluarga);
 
 	void updatePenduduk(Penduduk penduduk);
+
+	void ubahKematianPenduduk(String nik);
 }
